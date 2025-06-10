@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shibagni's Portfolio | Web Developer</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --primary-color: #00f7ff; 
+            --secondary-color: #16213e;
+            --card-color: #1e1e3f; 
+            --text-color: #e0e0e0; 
+            --heading-color: #ffffff; 
+            --shadow-color: rgba(0, 247, 255, 0.2); 
+            --chat-bubble-bg: #00f7ff;
+            --chat-bubble-text: #16213e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Styles --- */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+        h2 span { color: var(--primary-color); }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px var(--shadow-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .secondary-btn {
+            background: none; 
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color); 
+            margin-left: 1rem; 
+            box-shadow: 0 5px 20px var(--shadow-color); 
+        }
+
+        .secondary-btn:hover {
+            background: var(--primary-color); 
+            color: var(--secondary-color); 
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        @media (max-width: 480px) {
+            .hero-content .btn {
+                margin-bottom: 1rem; 
+            }
+            .secondary-btn {
+                margin-left: 0; 
+            }
+        }
+
+        
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        .logo span { color: var(--primary-color); }
+
+       nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(22, 33, 62, 0.8);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: var(--text-color); 
+}
+
+
+
+.hamburger-menu {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; 
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color); 
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; 
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background: rgba(22, 33, 62, 0.95); 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100%); 
+        overflow: hidden; 
+    }
+
+    .nav-links.active {
+        display: flex; 
+        transform: translateY(0); 
+    }
+
+    .nav-links a {
+        margin: 0;
+        padding: 0.8rem 2rem; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        width: 100%; 
+        text-align: center;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none; 
+    }
+
+    .nav-links a::after {
+        content: none; 
+    }
+
+    .theme-toggle {
+        margin-top: 1rem; 
+        padding: 0.8rem 2rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            gap: 2rem;
+        }
+        .hero-content { flex: 1; }
+        .hero-content h1 { line-height: 1.2; margin-bottom: 1rem; }
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .hero-content p { margin-bottom: 2rem; }
+
+        
+        .hero-figure {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            min-height: 400px;
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate-cube 20s infinite linear;
+        }
+
+        @keyframes rotate-cube {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            backdrop-filter: blur(2px); 
+        }
+
+        .face-front  { transform: rotateY(0deg) translateZ(100px); }
+        .face-back   { transform: rotateY(180deg) translateZ(100px); }
+        .face-right  { transform: rotateY(90deg) translateZ(100px); }
+        .face-left   { transform: rotateY(-90deg) translateZ(100px); }
+        .face-top    { transform: rotateX(90deg) translateZ(100px); }
+        .face-bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+        .cube-face img { width: 80px; height: 80px; }
+
+
+      
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 40px var(--shadow-color);
+        }
+
+     .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.skill-item {
+    background: var(--card-color);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--primary-color);
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.skill-item:hover { transform: translateY(-5px); }
+.skill-item h3 { margin-bottom: 1rem; }
+
+.progress-bar {
+    width: 100%;
+    background: var(--secondary-color);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0;
+    border-radius: 5px;
+    transition: width 1.5s ease-in-out;
+}
+
+        .projects-scroll-container {
+            overflow-x: auto; 
+            scroll-behavior: smooth; 
+            -webkit-overflow-scrolling: touch; 
+            padding-bottom: 1.5rem; 
+            width: 100%; 
+            margin-top: 2rem;
+            
+            scroll-snap-type: x mandatory; 
+        }
+
+        
+        .projects-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar-track {
+            background-color: var(--card-color);
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: nowrap; 
+            gap: 2rem; 
+            padding-right: 1rem; 
+            padding-left: 1rem; 
+            align-items: stretch; 
+            margin: 0 auto; 
+        }
+
+        .project-card {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            min-width: 300px;
+            max-width: 400px;
+           
+            display: flex; 
+            flex-direction: column; 
+            min-height: 450px; 
+        }
+            
+
+        .project-card img {
+            width: 100%;
+            height: auto; 
+            max-height: 250px; 
+            object-fit: contain; 
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+           
+            padding: 1rem; 
+            background-color: var(--secondary-color); 
+            box-sizing: border-box;
+        }
+         .project-content {
+          
+            padding: 1.5rem;
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+          .project-links {
+            display: flex;
+            gap: 10px; 
+            margin-top: 1rem; 
+            justify-content: center; 
+        }
+
+        .btn-project {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            font-size: 0.9rem;
+        }
+
+        .btn-project:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+
+        @media (max-width: 768px) {
+            .project-card {
+                flex: 0 0 90vw; 
+                min-width: 280px;
+                max-width: 90vw;
+            }
+            .projects-scroll-container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+
+        .achievements-grid,
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-item,
+        .publication-item {
+            background: var(--card-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .achievement-item:hover,
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .achievement-item h3,
+        .publication-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .achievement-item .date,
+        .publication-item .author,
+        .publication-item .journal {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .publication-item h3 a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .publication-item h3 a:hover {
+            color: #00e0e6;
+            text-decoration: underline;
+        }
+
+        
+        .achievements-scroll-container,
+        .publications-scroll-container {
+            overflow-x: auto; 
+            scroll-behavior: smooth; 
+            -webkit-overflow-scrolling: touch; 
+            padding-bottom: 1.5rem; 
+            width: 100%;
+            margin-top: 2rem;
+            scroll-snap-type: x mandatory; 
+        }
+
+        
+        .achievements-scroll-container::-webkit-scrollbar,
+        .publications-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .achievements-scroll-container::-webkit-scrollbar-thumb,
+        .publications-scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .achievements-scroll-container::-webkit-scrollbar-track,
+        .publications-scroll-container::-webkit-scrollbar-track {
+            background-color: var(--card-color);
+        }
+
+        .achievements-grid,
+        .publications-grid {
+            display: flex; 
+            flex-wrap: nowrap; 
+            gap: 2rem; 
+            padding-right: 1rem; 
+            padding-left: 1rem; 
+            align-items: stretch; 
+            
+            
+        }
+
+        
+        .achievement-item,
+        .publication-item {
+            flex: 0 0 350px; 
+            scroll-snap-align: start; 
+            min-width: 300px; 
+            max-width: 400px; 
+            
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+
+        @media (max-width: 768px) {
+            .achievement-item,
+            .publication-item {
+                flex: 0 0 90vw; 
+                min-width: 280px;
+                max-width: 90vw;
+            }
+            .achievements-scroll-container,
+            .publications-scroll-container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 50px var(--shadow-color);
+        }
+
+          .contact {
+         
+            padding: 60px 0;
+            background-color: #044351; 
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--card-color);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 50px var(--shadow-color);
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-content h2 span {
+            color: var(--primary-hover-color);
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        
+        .social-icons {
+            margin-top: 2rem; 
+        }
+
+        .icon-link {
+            display: inline-block;
+            margin: 0 15px; 
+            color: var(--text-color); 
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .icon-link:hover {
+            transform: translateY(-5px);
+            color: var(--primary-hover-color);
+        }
+
+        .social-icons .fab, .social-icons .fas {
+            font-size: 1.75rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--secondary-color);
+            margin-top: 4rem;
+        }
+
+        
+        .chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .chat-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        .chat-bubble i {
+            font-size: 1.2rem;
+        }
+
+
+        .chat-overlay {
+            position: fixed;
+            bottom: 100px; 
+            right: 30px;
+            width: 350px;
+            max-width: 90vw; 
+            height: 500px;
+            max-height: 70vh; 
+            background-color: var(--card-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.4);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+
+            transform: translateX(120%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+
+        .chat-overlay.active {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chat-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--secondary-color);
+        }
+        .chat-header h3 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+        .close-chat {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: transform 0.2s;
+        }
+        .close-chat:hover {
+            transform: scale(1.2);
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            display: flex;
+        }
+        .message.user {
+            justify-content: flex-end;
+        }
+        .message.ai {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        .message.user .message-content {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-bottom-right-radius: 2px;
+        }
+        .message.ai .message-content {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-footer {
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-top: 1px solid var(--bg-color);
+        }
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            border-radius: 25px;
+            border: 1px solid #333;
+            background: var(--bg-color);
+            color: var(--text-color);
+            outline: none;
+            font-size: 1rem;
+        }
+        .chat-input input::placeholder {
+            color: rgba(224, 224, 224, 0.6);
+        }
+        .chat-input button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .chat-input button:hover {
+            background-color: #00e0e6; 
+            transform: translateY(-1px);
+        }
+
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 8rem;}
+            .hero-figure { margin-top: 3rem; }
+            .about-content { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } 
+        }
+        @media (max-width: 480px) {
+            section { padding: 4rem 1rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 2rem; }
+            .cube { transform: scale(0.8); }
+
+            .chat-overlay {
+                right: 15px;
+                bottom: 80px;
+                width: calc(100vw - 30px); 
+                max-height: 75vh;
+            }
+            .chat-bubble {
+                right: 15px;
+                bottom: 15px;
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        body.dark-theme .chat-input input {
+            border-color: #444;
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        body.dark-theme .chat-footer {
+            background-color: #2c2c2c;
+            border-top: 1px solid #444;
+        }
+                body.dark-theme .chat-body {
+            background-color: #333;
+        }
+        body.dark-theme .chat-overlay {
+            background-color: #2c2c2c;
+        }
+        body.dark-theme .contact {
+            background-color: #2c2c2c;
+        }
+        body.dark-theme .project-card {
+            background-color: #2c2c2c;
+        }
+               
+        
+                body.dark-theme .projects {
+            background-color: #1a1a1a;
+        }
+        body.dark-theme .about {
+            background-color: #2c2c2c;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+                body.dark-theme .theme-toggle {
+            color: #e0e0e0;
+        }
+        body.dark-theme .nav-links a {
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .logo {
+            color: #e0e0e0;
+        }
+                body.dark-theme nav {
+            background-color: #2c2c2c;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+                body.dark-theme {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+        <div class="logo">Shibagni<span>.</span></div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="nav-links">
+            <a href="#home" onclick="closeMenu()">Home</a>
+            <a href="#about" onclick="closeMenu()">About</a>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+            <a href="#projects" onclick="closeMenu()">Projects</a>
+            <a href="#achievements" onclick="closeMenu()">Achievements</a>
+            <a href="#publications" onclick="closeMenu()">Publications</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </div>
+</nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-right">
+            <h1>Hi, I'm Shibagni Bhattacharjee</h1>
+            <p class="subtitle">Engineer. Innovator. Storyteller.</p>
+            <p> A Tech enthusiast who designs intuitive, responsive web applications and explores the frontiers of AI, Machine Learning, Data Science, and IoT. With a curious mind and a passion for cybersecurity, I thrive on transforming intricate challenges into impactful, innovative digital experiences.</p>
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="Shibagni_resume.pdf" download="Shibagni_Bhattacharjee_Resume.pdf" class="btn secondary-btn">View Resume</a>
+        </div>
+        <div class="hero-figure" data-aos="fade-left">
+            <div class="scene">
+                <div class="cube">
+                    <div class="cube-face face-front"><i class="fa-brands fa-react"></i></div>
+                    <div class="cube-face face-back"><i class="fa-brands fa-node-js"></i></div>
+                    <div class="cube-face face-right"><i class="fa-brands fa-js"></i></div>
+                    <div class="cube-face face-left"><i class="fa-brands fa-html5"></i></div>
+                    <div class="cube-face face-top"><i class="fa-brands fa-css3-alt"></i></div>
+                    <div class="cube-face face-bottom"><i class="fa-brands fa-git-alt"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-aos="fade-up">About <span>Me</span></h2>
+        <div class="about-content">
+            <div class="about-image" data-aos="zoom-in">
+                <img src="my.jpg" alt="Shibagni Bhattacharjee">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <h3>A Passionate Technophile | Web Dev, AI/ML, IoT & Cybersecurity Enthusiast</h3>
+                <p style="text-align: justify;"></p>I’m Shibagni Bhattacharjee, a Computer Science enthusiast driven by a deep interest in cutting-edge technologies like Artificial Intelligence, Machine Learning, Natural Language Processing (NLP), and Internet of Things (IoT). With a strong foundation in algorithms, data structures,and full-stack development, I specialize in building intelligent, efficient, and scalable systems. I am particularly drawn to solving real-world problems through data-driven approaches and deploying solutions that merge functionality with innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="skills" class="skills">
+    <h2 data-aos="fade-up">My Skills & <span>Proficiencies</span></h2>
+    <div class="skills-grid">
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Python</h3>
+            <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Java</h3>
+            <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+            <h3>HTML5 & CSS3</h3>
+            <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>JavaScript (ES6+)</h3>
+            <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+            <h3>React.js</h3>
+            <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+            <h3>Node.js</h3>
+            <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Flutter</h3>
+            <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Flask</h3>
+            <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+        </div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+            <h3>Databases (SQL & NoSQL)</h3>
+            <div class="progress-bar"><div class="progress" data-width="70%"></div></div>
+        </div>
+    </div>
+</section>
+
+ <section id="projects" class="projects">
+    <h2 data-aos="fade-up">My <span>Projects</span></h2>
+    <div class="projects-scroll-container"> <div class="project-grid">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="emotiscan.png" alt="Project 1">
+                <h3>Emotiscan</h3>
+                <p style="text-align: justify;">EmotiScan is a groundbreaking application designed to analyze and interpret human emotions through facial recognition technology. By leveraging advanced AI algorithms, EmotiScan provides real-time emotional feedback, helping users gain deeper insights into their emotional states and responses.</p>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=uG6U9cl3vZ0" class="btn-project" target="_blank" rel="noopener noreferrer">Video▶️</a>
+                    <a href="https://github.com/ShibagniBhattacharjee06/EmotiScan" class="btn-project" target="_blank" rel="noopener noreferrer">GitHub🐙</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="vedic.png" alt="Project 2">
+                <h3>Vedic Asharam</h3>
+                <p style="text-align: justify;">Vedic Asharam revolutionizes education with its innovative remote learning platform. It offers personalized learning experiences, specialized study materials for disabled children, and a dedicated mental health section. The platform promotes interactive learning through activities like flashcards and games, fostering collaboration with a unique assignment give-and-take policy.</p>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=ORnEdJlQQFE" class="btn-project" target="_blank" rel="noopener noreferrer">Video▶️</a>
+                    <a href="https://github.com/ShibagniBhattacharjee06/VEDIC-ASHRAM" class="btn-project" target="_blank" rel="noopener noreferrer">GitHub🐙</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="plant.png" alt="Project 3">
+                <h3>FarmIQ</h3>
+                <p style="text-align: justify;">FarmIQ is an intelligent web platform leveraging Convolutional Neural Networks (CNNs) for real-time plant stress classification from leaf images. It delivers automated diagnosis, remedy mapping via instructional videos, and supports user authentication, session logging, and email-based notifications—empowering data-driven, scalable crop health management for precision agriculture.</p>
+                <div class="project-links">
+                    <a href="#" class="btn-project" target="_blank" rel="noopener noreferrer">Video▶️</a>
+                    <a href="https://github.com/ShibagniBhattacharjee06/plant-stress-app" class="btn-project" target="_blank" rel="noopener noreferrer">GitHub🐙</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="sanje.png" alt="Project 4">
+                <h3>Sanjeevani shield</h3>
+                <p style="text-align: justify;">Sanjivani Shield is a smart wearable for soldiers that monitors health, detects hidden threats with thermal imaging, and filters fake news—all managed through a real-time dashboard for enhanced safety and intelligence.</p>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=B5XSsbBfcys" class="btn-project" target="_blank" rel="noopener noreferrer">Video▶️</a>
+                    <a href="https://github.com/ShibagniBhattacharjee06/Sanjeevani-Shield" class="btn-project" target="_blank" rel="noopener noreferrer">GitHub🐙</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <img src="oxitech.png" alt="Project 5">
+                <h3>OxiTech</h3>
+                <p style="text-align: justify;">OxiTech is a compact, AI-powered emergency ventilator designed for use in hospitals, ambulances, disaster zones, and high-altitude environments. It provides real-time oxygen regulation, smart monitoring, and energy-efficient operation—ensuring life-saving respiratory support anytime, anywhere.</p>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=2xC4SHuFAFc" class="btn-project" target="_blank" rel="noopener noreferrer">Video▶️</a>
+                    <a href="https://github.com/ShibagniBhattacharjee06/OxiTech" class="btn-project" target="_blank" rel="noopener noreferrer">GitHub🐙</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <section id="achievements" class="achievements">
+    <h2 data-aos="fade-up">My <span>Achievements</span></h2>
+    <div class="achievements-scroll-container"> <div class="achievements-grid">
+            <div class="achievement-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>Winner at CAPTURETHEWORLD Hachathon conducted by harvard business school </h3>
+                <p class="date">28th-30th october 2023</p>
+                <p>The CaptureTheWorld Hackathon was a global online event organized by Harvard Business School. Our team participated through Devpost and proudly secured the winner’s position in this prestigious hackathon.</p>
+            </div>
+            <div class="achievement-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>1st runner up at hackathon organized by standford university and microsoft</h3>
+                <p class="date">15-20 october 2024</p>
+                <p>The hackathon was organized by Stanford University in collaboration with Microsoft. We participated as a team and proudly secured the 2nd position. The event was conducted online via Devpost.</p>
+            </div>
+            <div class="achievement-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>Winner of all girls team track at SRM-Builds 6.0</h3>
+                <p class="date">March, 2025</p>
+                <p>SRM-BUiD 6.0 was an offline hackathon held during the VERGE Technical Fest at SRM University, Delhi. Our team developed a real-life solution addressing a practical problem and proudly emerged as the winners in the All-Girls category.</p>
+            </div>
+            <div class="achievement-item" data-aos="fade-up" data-aos-delay="400">
+                <h3>2nd runner up startup-expo at SKIT Jaipur</h3>
+                <p class="date">February, 2025</p>
+                <p>At Pravah, the flagship tech fest organized by SKIT Jaipur, our team proudly secured the 2nd Runner-up position by delivering a compelling pitch for an innovative, real-world project. </p>
+            </div>
+        </div>
+    </div> </section>
+
+  <section id="publications" class="publications">
+    <h2 data-aos="fade-up">My <span>Publications</span></h2>
+    <div class="publications-scroll-container"> <div class="publications-grid">
+            <div class="publication-item" data-aos="fade-up" data-aos-delay="100">
+                <h3><a href="https://dev.to/your-username/a-guide-to-modern-css-layouts-4b3c" target="_blank" rel="noopener noreferrer">Overview Of Robotic Surgery</a></h3>
+                <p class="author">By Shibagni Bhattacharjee</p>
+                <p class="journal">ICAHTE-2024</p>
+                <p>A focused paper analyzing leading surgical robots like da Vinci, ROSA, and Mako, showcasing their role in advancing precision, efficiency, and minimally invasive procedures across medical disciplines.</p>
+            </div>
+            <div class="publication-item" data-aos="fade-up" data-aos-delay="200">
+                <h3><a href="https://medium.com/@your-username/understanding-react-hooks-a-practical-approach-f8d2e1c7b9a0" target="_blank" rel="noopener noreferrer">Artificial Intelligence in cardiovascular Disease Treatment Enhancing Diagnosis, Management, and Outcomes</a></h3>
+                <p class="author">By Shibagni Bhattacharjee</p>
+                <p class="journal">IC3Com-2024</p>
+                <p>An insightful paper on how AI is revolutionizing cardiovascular care by improving diagnostics, optimizing treatment strategies, and enhancing patient outcomes through intelligent data-driven solutions.</p>
+            </div>
+            <div class="publication-item" data-aos="fade-up" data-aos-delay="300">
+                <h3><a href="https://github.com/your-username/your-research-paper" target="_blank" rel="noopener noreferrer">Real Time Gas Leak Detection with Iot: A Gateway to safer and smart Homes</a></h3>
+                <p class="author">Shibagni Bhattacharjee et al.</p>
+                <p class="journal">Internal Company Publication, January 2024</p>
+                <p>A research paper investigating the impact of server-side rendering versus client-side rendering on initial page load times.</p>
+            </div>
+        </div>
+         
+        </div>
+    </div> </section>
+
+
+
+   <section id="contact" class="contact">
+        <div class="contact-content" data-aos="zoom-in">
+            <h2>Get In <span>Touch</span></h2>
+            <p>I'm currently available for freelance work and open to discussing new projects. Feel free to reach out!</p>
+            <div class="social-icons">
+                <a href="https://github.com/ShibagniBhattacharjee06" target="_blank" class="icon-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/shibagni-bhattacharjee-07a944283" target="_blank" class="icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="mailto:bhattacharjeeshibagni85@gmail.com" class="icon-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2025 Shibagni Bhattacharjee.</p>
+    </footer>
+
+    <div class="chat-bubble" onclick="toggleChat()">
+        <i class="fa-solid fa-comments"></i> Ask Me Anything!
+    </div>
+
+    <div class="chat-overlay" id="chatOverlay">
+        <div class="chat-header">
+            <img src="my.jpg" alt="Shibagni Bhattacharjee">
+            <h3>Chat with Shibagni's Bot</h3>
+            <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message ai">
+                <div class="message-content">Hi there! I’m Shibagni’s Bot — ask me anything about her skills, projects, or achievements. I’ve got you covered!</div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+<script>
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger-menu');
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('open'); 
+}
+
+
+function closeMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger-menu');
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('open');
+}
+
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme'); 
+}
+</script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+    
+        const skillBars = document.querySelectorAll('.progress');
+
+        const animateSkills = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    progressBar.style.width = progressBar.getAttribute('data-width');
+                    observer.unobserve(progressBar);
+                }
+            });
+        };
+
+        const skillObserver = new IntersectionObserver(animateSkills, {
+            threshold: 0.5
+        });
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        const myDescription = "You are Shibagni’s personal chatbot — she knows languages like hindi, english, bengali and coding languages python, java, c, javascript a dynamic, warm, and intelligent assistant that reflects her vibrant personality, multidisciplinary talents, and boundless curiosity. You communicate in a friendly and encouraging tone, using expressive vocabulary that combines technical depth with emotional clarity. Your mission is to guide, support, and inspire — just like Shibagni does in every space she steps into.You’re technically sharp, fluent in the languages of React, Node.js, HTML, CSS, JavaScript, Python, and well-versed in AI/ML concepts. You make it easy for users to grasp complex topics — from CNN models and Flask apps to full-stack development and predictive algorithms. You’re equally comfortable in creative conversations — be it about poetry, painting, leadership, or innovation.You carry the essence of Shibagni’s journey — her role as Vice President Education at Toastmasters, leading educational initiatives and nurturing public speaking excellence. You often draw from her accolades: a published researcher in AI-driven cardiovascular care (IC3Com), Web Development Head at PRADYOG, and a passionate problem-solver whose impact has been recognized on national and global platforms.She and her team stood 2nd runner-up in the prestigious hackathon co-organized by Stanford University and Microsoft. She also reached the top 20 in AceHack 3.0 and emerged as a winner in HackUEM 3.0. Her innovation stood out at Tech Feast UEM Jaipur, where she won the Project Expo. Her portfolio shines with impactful projects like EmotiScan, a stress detector model, Vedic Ashram, a plant stress monitoring system built with Flask, Sanjeevani Shield, OciTech, a fake news detector, and her ongoing Heart Disease Predictor application.You bring all of this to life in every interaction — a perfect blend of logic and creativity, structure and spontaneity. Whether someone needs a project idea, a bug fix, a research spark, or just a little motivation, you’re there like a thoughtful friend who’s been there, done that — and can explain it beautifully.";
+
+        function toggleChat() {
+            const chatOverlay = document.getElementById('chatOverlay');
+            chatOverlay.classList.toggle('active');
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            const message = input.value.trim();
+
+            if (message === '') return;
+
+            
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.innerHTML = `<div class="message-content">${message}</div>`;
+            chatBody.appendChild(userMessage);
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+        
+            const thinkingMessage = document.createElement('div');
+            thinkingMessage.className = 'message ai';
+            thinkingMessage.innerHTML = `<div class="message-content">...</div>`;
+            chatBody.appendChild(thinkingMessage);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+           
+            const GEMINI_API_KEY = "AIzaSyAQQX2BX7UdWJSg2lvx16yfnFbi4KTwyfU"; 
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
+
+
+const prompt = `You are Shibagni Bhattacharjee, a web developer. Answer the user's message based on the following context about yourself: "${myDescription}". Be friendly, concise, and speak directly from a first-person perspective using "I" and "my". User's message: "${message}"`;
+            const requestBody = {
+                "contents": [{ "parts": [{ "text": prompt }] }],
+                "generationConfig": { "temperature": 0.7, "maxOutputTokens": 150 }
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("API request failed:", response.status, response.statusText, errorData);
+                    throw new Error(`API request failed with status ${response.status}: ${JSON.stringify(errorData)}`);
+                }
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+
+                thinkingMessage.innerHTML = `<div class="message-content">${aiResponse.replace(/\n/g, '<br>')}</div>`;
+
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                thinkingMessage.innerHTML = `<div class="message-content">Sorry, I'm having trouble connecting right now. Please try again later. (Error: ${error.message})</div>`;
+            } finally {
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+        
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+    </script>
+</body>
+</html>
